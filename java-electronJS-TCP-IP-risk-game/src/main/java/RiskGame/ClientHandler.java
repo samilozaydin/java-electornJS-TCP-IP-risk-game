@@ -106,15 +106,29 @@ public class ClientHandler implements Runnable {
 
         Server.getSessions().get(this.sessionId).setFirst_player(this);
     }
-
+       
+   private void sendSessions(){
+       for (Session session : Server.getSessions()) {
+           String sessionName = session.getFirst_player().getClient().getRemoteSocketAddress().toString();
+       }
+   }
+    
     private void initFunctions() {
         this.functions = new HashMap<>();
         functions.put("1", this::createSession);
         functions.put("2", this::write);
+        functions.put("3",this::sendSessions);
     }
     /*
     1: create a session
     2: send to client
-    
+    3: send sessions
     */
+
+    /**
+     * @return the client
+     */
+    public Socket getClient() {
+        return client;
+    }
 }

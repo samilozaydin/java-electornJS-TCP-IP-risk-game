@@ -1,6 +1,8 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
+const net = require('net');
 
+const client = new net.Socket();
 
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -18,14 +20,52 @@ const createWindow = () => {
       nodeIntegration: true,
       contextIsolation: false
     },
+
   });
 
   // and load the index.html of the app.
+  /*ipcMain.handle('sendMessage', (e, myJson) => {
+    function bb() {
+      console.log("data is received before process")
+      let data = client.read();
+      console.log("ikinci sektor" + data);
+      console.log("data is received")
+      return data;
+    }
+
+    console.log(myJson)
+    const writeJson = JSON.stringify(myJson);
+    console.log("writeJson == " + writeJson)
+    client.write(writeJson);
+    console.log("data is written")
+    let data = bb();
+    return data;
+  });
+
+  ipcMain.handle('receiveMessage', () => {
+    var data = client.read();
+    console.log("gelindi " + data);
+    return data;
+  });
+
+  ipcMain.handle('connectToServer', () => {
+    client.connect(8080, 'localhost', () => {
+      console.log('connected to server');
+    });
+  });*/
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
 };
+
+/*
+ipcMain.on('sendMessage', (event, arg) => {
+  console.log(arg) // prints "ping" in the Node console
+  // works like `send`, but returning a message back
+  // to the renderer that sent the original message
+  event.reply('receiveMessage', 'pong')
+})*/
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.

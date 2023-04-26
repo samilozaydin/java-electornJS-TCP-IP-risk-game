@@ -15,6 +15,7 @@ const sendbutton = document.getElementById("sendbutton");
 myJson = {
     processType: ""
 }
+const READ_BUFFER_SIZE = 1024;
 /* MESSAGE TYPES
 
 processType : the process will be executed.
@@ -27,17 +28,52 @@ client.connect(8080, 'localhost', () => {
     console.log('connected to server');
 });
 
+client.on("data", (data) => {
+    let receivedData = data;
+    console.log(data);
+    receivedJSON = JSON.parse(receivedData);
 
+    console.log("data is received")
+});
+
+/*
 mybutton.addEventListener("click", () => {
     const mytext = document.getElementById("mytext");
-    console.log("data is received")
     mytext.innerHTML = client.read();
     console.log("data is received")
 })
+
+sendbutton.addEventListener("click", () => {
+    const writeJson = JSON.stringify(myJson);
+    client.write(writeJson);
+    console.log("data is written")
+})*/
+
+/*
+mybutton.addEventListener("click", () => {
+    const mytext = document.getElementById("mytext");
+    console.log("data is received");
+    let data = readData();
+    console.log(data);
+    mytext.innerHTML = data;
+    console.log("data is received")
+})
+
+function readData() {
+    var data;
+    while ((data = client.read()) == null) {
+        console.log("blabla");
+    };
+    console.log("gelindi " + data);
+    return data;
+}
 function bb() {
     const mytext = document.getElementById("mytext");
     console.log("data is received before process")
-    mytext.innerHTML = client.read();
+    let data = readData();
+    console.log("ikinci sektor" + data);
+    mytext.innerHTML = data;
+
     console.log("data is received")
 }
 sendbutton.addEventListener("click", () => {
@@ -45,7 +81,7 @@ sendbutton.addEventListener("click", () => {
     client.write(writeJson);
     console.log("data is written")
     bb();
-})
+})*/
 
 /*-------------------------------------------------*/
 /*-------------------------------------------------*/
@@ -97,6 +133,24 @@ const btn_previous = new Image();
 btn_previous.src = "./images/btn_previous.png";
 const btn_exit = new Image();
 btn_exit.src = "./images/btn_exit.png";
+const btn_add_session = new Image();
+btn_add_session.src = "./images/btn_add_Session.png";
+
+// Load Buttons
+ply_btn = new Button(btn_play, CANVAS_WIDTH / 2 - 100, CANVAS_HEIGHT / 2 + 25, 200, 200);
+_btn_next = new Button(btn_previous, CANVAS_WIDTH / 4 - 75, CANVAS_HEIGHT / 2 + 150, 100, 100);
+_btn_previous = new Button(btn_next, CANVAS_WIDTH * 3 / 4 - 50, CANVAS_HEIGHT / 2 + 150, 100, 100);
+_btn_exit = new Button(btn_exit, CANVAS_WIDTH / 2 - 40, CANVAS_HEIGHT / 2 + 165, 75, 75);
+_btn_create = new Button(btn_add_session, CANVAS_WIDTH / 2 + 150, CANVAS_HEIGHT / 2 + 85, 50, 50);
+
+
+const all_buttons = {
+    "ply_btn": ply_btn,
+    "next": _btn_next,
+    "main_menu": _btn_exit,
+    "previous": _btn_previous,
+    "waiting_for_player": _btn_create
+}
 
 //click event is created
 var mouseX = -1;
@@ -110,13 +164,17 @@ canvas.addEventListener("mousedown", (event) => {
 
 //global parameter
 var parameter = {};
+var sessionPage = 1;
+var maxSessionInPage = 5;
+
 
 //control variables
 isSessionCreated = false;
 
 const colors = {
     "black": "#000000",
-    "waiting_box": "#A55240"
+    "waiting_box": "#A55240",
+    "session_box": "#FFDBAC"
 }
 const functions = {
     "main_menu": main_menu,
@@ -135,11 +193,11 @@ function game_loop() {
 function main_menu() {
     ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
     ctx.drawImage(img_background, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-    ply_btn = new Button(btn_play, CANVAS_WIDTH / 2 - 100, CANVAS_HEIGHT / 2 + 25, 200, 200);
     ply_btn.draw(ctx);
 
     if (mouseX > ply_btn.x && mouseX < ply_btn.x + ply_btn.width
         && mouseY > ply_btn.y && mouseY < ply_btn.y + ply_btn.height) {
+        getSessions();
         funcSelection = "waiting_menu";
         console.log("play button executed");
 
@@ -149,35 +207,26 @@ function main_menu() {
 }
 
 function waiting_menu() {
+
     ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
     ctx.drawImage(img_background, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-    _btn_next = new Button(btn_previous, CANVAS_WIDTH / 4 - 75, CANVAS_HEIGHT / 2 + 150, 100, 100);
     _btn_next.draw(ctx);
-    _btn_previous = new Button(btn_next, CANVAS_WIDTH * 3 / 4 - 50, CANVAS_HEIGHT / 2 + 150, 100, 100);
     _btn_previous.draw(ctx);
-    _btn_exit = new Button(btn_exit, CANVAS_WIDTH / 2 - 40, CANVAS_HEIGHT / 2 + 165, 75, 75);
     _btn_exit.draw(ctx);
-    rep_btn_create = new Button(null, CANVAS_WIDTH / 2 + 100, CANVAS_HEIGHT / 2 + 85, 100, 50);
+
+    ctx.fillStyle = colors["waiting_box"];
+    ctx.roundRect(CANVAS_WIDTH / 4 - 100, CANVAS_HEIGHT / 4 - 50, 565, 350, 15);
+    ctx.fill();
+
+    _btn_create.draw(ctx);
 
     const buttons = {
         "next": _btn_next,
         "main_menu": _btn_exit,
         "previous": _btn_previous,
-        "waiting_for_player": rep_btn_create
+        "waiting_for_player": _btn_create
     };
     //parameter = buttons;
-
-
-    ctx.fillStyle = colors["waiting_box"];
-    ctx.roundRect(CANVAS_WIDTH / 4 - 100, CANVAS_HEIGHT / 4 - 50, 565, 350, 15);
-    ctx.fill();
-    ctx.fillStyle = colors["black"];
-    ctx.fillRect(CANVAS_WIDTH / 2 + 100, CANVAS_HEIGHT / 2 + 85, 100, 50);
-    ctx.fillStyle = colors["waiting_box"];
-    ctx.fillRect(CANVAS_WIDTH / 2 + 105, CANVAS_HEIGHT / 2 + 90, 90, 40);
-    ctx.fillStyle = colors["black"];
-    ctx.font = "16px serif";
-    ctx.fillText("Create Game", CANVAS_WIDTH / 2 + 108, CANVAS_HEIGHT / 2 + 115);
 
     selection = "";
     Object.entries(buttons)
@@ -189,7 +238,7 @@ function waiting_menu() {
                 funcSelection = key[0];
                 // console.log("exit selected")
             }
-        })
+        });
     //console.log("Buraya gelindi");
     mouseReset();
 }
@@ -198,13 +247,24 @@ function mouseReset() {
     mouseX = -1;
     mouseY = -1;
 }
-
+function getSessions() {
+    sendMessage(processType = "3")
+}
+function putSessions() {
+    ctx.fillStyle = colors["waiting_box"];
+    ctx.roundRect(CANVAS_WIDTH / 4 - 75, CANVAS_HEIGHT / 4 - 50, 500, 40, 15);
+    ctx.fill();
+}
 function waiting_for_player() {
     if (!isSessionCreated) {
         isSessionCreated = true;
 
-        sendMessage(processType = "1");
-        receiveMessage();
+        let sendJSON = {
+            processType: "1"
+        }
+
+        sendMessage(sendJSON);
+        //receiveMessage();
 
     }
     ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
@@ -218,7 +278,7 @@ function sendMessage(processType) {
     console.log(processType);
     console.log("data is written");
 }
-
+/* Gecici olarak client.on("data")... kısmına kaldırıldı.
 function receiveMessage() {
     receivedData = client.read();
     console.log(receivedData);
@@ -229,6 +289,6 @@ function receiveMessage() {
 
     console.log(myJson["name"]);
     console.log("data is received")
-}
+}*/
 
-//game_loop();
+game_loop();

@@ -12,3 +12,9 @@ canvas{
   height: 600;
   width: 800;
 }
+
+#ply_btn{
+  background-color: url("./images/btn_play.png");
+  width: 3rem;
+  height: 2rem;
+}
