@@ -1,20 +1,1003 @@
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
-    Arial, sans-serif;
-  margin: 0px;
-  width: 800;
-  height: 600;
-  max-width: 800;
-  max-height: 600;
-  padding: 0px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif;
+    margin: 0px;
+    width: 800;
+    height: 600;
+    max-width: 800;
+    max-height: 600;
+    padding: 0px;
 }
-canvas{
-  height: 600;
-  width: 800;
+.menu-background {
+    width: 100%;
+    height: 100vh;
+    background-image: url("./images/background.jpg");
+    background-size: cover;
+}
+#ply_btn {
+    background-image: url("./images/btn_play.png");
+    background-size: 100%;
+    width: 15rem;
+    height: 6rem;
+}
+#btn_previous {
+    width: 7.5rem;
+    height: 6rem;
+}
+#btn_exit {
+    width: 6rem;
+    height: 6rem;
+}
+#btn_add_session {
+    width: 6rem;
+    height: 6rem;
+}
+.btn_lobby_arrow {
+    width: 7.5rem;
+    height: 6rem;
+}
+#main_menu {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+}
+#main_menu_empty_button {
+    width: 100px;
+    height: 100px;
+}
+#waiting-menu {
+    width: 70%;
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    background-image: url("./images/menu_frame.jpg");
+    background-size: cover;
 }
 
-#ply_btn{
-  background-color: url("./images/btn_play.png");
-  width: 3rem;
-  height: 2rem;
+.horizontal-buttons {
+    display: flex;
+    flex-direction: row;
+}
+.container_session_button {
+    display: flex;
+    justify-content: flex-end;
+}
+.sessions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.session {
+    width: 95%;
+    background: #fff8dc;
+    height: 50px;
+    margin: 0.5rem 0 1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#session_name {
+    height: 2rem;
+    margin-right: 2rem;
+    margin-top: 1.5rem;
+}
+
+.game-board {
+    width: 100vw;
+    height: 100vh;
+    background-color: #00ecfa;
+    position: relative;
+}
+.pawns {
+    z-index: 1;
+    margin: 0px;
+    padding: 0px;
+    width: 52px;
+    height: 52px;
+    box-shadow: 0px 0px 5px 1px black;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    text-align: center;
+    color: yellow;
+}
+.red-pawns {
+    background-image: linear-gradient(75deg, rgb(130, 11, 11), rgb(159, 36, 8));
+}
+.red-pawns:hover {
+    background-image: linear-gradient(75deg, red, rgb(247, 57, 14));
+}
+.red-pawns:active {
+    background-image: linear-gradient(75deg, rgb(130, 11, 11), rgb(159, 36, 8));
+}
+.blue-pawns {
+    background-image: linear-gradient(75deg, #013d44, rgb(18, 77, 108));
+}
+.blue-pawns:hover {
+    background-image: linear-gradient(
+        75deg,
+        rgb(42, 183, 225),
+        rgb(8, 111, 167)
+    );
+}
+.blue-pawns:active {
+    background-image: linear-gradient(75deg, #013d44, rgb(18, 77, 108));
+}
+#pawn_0 {
+    /*alaska*/
+    left: 5vw;
+    top: 7vh;
+}
+#pawn_1 {
+    /*nprthwend territory*/
+    left: 13vw;
+    top: 7vh;
+}
+#pawn_2 {
+    /*gronland*/
+    left: 29vw;
+    top: 5vh;
+}
+#pawn_3 {
+    /*iceland*/
+    left: 35vw;
+    top: 17vh;
+}
+#pawn_4 {
+    left: 10vw;
+    top: 18vh;
+}
+#pawn_5 {
+    left: 16vw;
+    top: 18vh;
+}
+#pawn_6 {
+    /*eastern Canada*/
+    left: 23vw;
+    top: 18vh;
+}
+#pawn_7 {
+    /*western united stated*/
+    left: 12.5vw;
+    top: 28.5vh;
+}
+#pawn_8 {
+    /*eastern united stated*/
+    left: 19vw;
+    top: 29vh;
+}
+#pawn_9 {
+    /*central america*/
+    left: 17vw;
+    top: 39vh;
+}
+#pawn_10 {
+    /*venezuela*/
+    left: 22vw;
+    top: 53vh;
+}
+#pawn_11 {
+    /*brazil*/
+    left: 28vw;
+    top: 67vh;
+}
+#pawn_12 {
+    /*brazil*/
+    left: 21vw;
+    top: 67vh;
+}
+#pawn_13 {
+    /*brazil*/
+    left: 25vw;
+    top: 78vh;
+}
+#pawn_14 {
+    left: 32vw;
+    top: 30vh;
+}
+#pawn_15 {
+    /*scandnavia*/
+    left: 45vw;
+    top: 16vh;
+}
+#pawn_16 {
+    /*nothern europe*/
+    left: 40vw;
+    top: 30vh;
+}
+#pawn_17 {
+    /*western europe*/
+    left: 35vw;
+    top: 44vh;
+}
+#pawn_18 {
+    /*souther europe*/
+    left: 42vw;
+    top: 43vh;
+}
+#pawn_19 {
+    /*russia*/
+    left: 50vw;
+    top: 31vh;
+}
+#pawn_20 {
+    /*middle east*/
+    left: 51vw;
+    top: 50vh;
+}
+#pawn_21 {
+    /*egpyt*/
+    left: 45vw;
+    top: 60vh;
+}
+#pawn_22 {
+    /*north africa*/
+    left: 38.5vw;
+    top: 63.5vh;
+}
+#pawn_23 {
+    /*central africa*/
+    left: 43vw;
+    top: 72vh;
+}
+#pawn_24 {
+    /*south africa*/
+    left: 46vw;
+    top: 82vh;
+}
+#pawn_25 {
+    /*madagaskar*/
+    left: 53vw;
+    top: 82vh;
+}
+#pawn_26 {
+    /*east africa*/
+    left: 49vw;
+    top: 70vh;
+}
+#pawn_27 {
+    /*india*/
+    left: 62vw;
+    top: 50vh;
+}
+#pawn_28 {
+    /*afghanistan*/
+    left: 57vw;
+    top: 40vh;
+}
+#pawn_29 {
+    /*ural*/
+    left: 61vw;
+    top: 25vh;
+}
+#pawn_30 {
+    /*Siberia*/
+    left: 67vw;
+    top: 18vh;
+}
+#pawn_31 {
+    /*Yakuts*/
+    left: 74vw;
+    top: 12vh;
+}
+#pawn_32 {
+    /*Inkuts*/
+    left: 74vw;
+    top: 25vh;
+}
+#pawn_33 {
+    /*Kamchatks*/
+    left: 82vw;
+    top: 20vh;
+}
+#pawn_34 {
+    /*Mongolia*/
+    left: 77vw;
+    top: 36vh;
+}
+#pawn_35 {
+    /*Japan*/
+    left: 85vw;
+    top: 38vh;
+}
+#pawn_36 {
+    /*China*/
+    left: 72vw;
+    top: 48vh;
+}
+#pawn_37 {
+    /*southern china*/
+    left: 77vw;
+    top: 58vh;
+}
+#pawn_38 {
+    /*Indonesia*/
+    left: 77vw;
+    top: 70vh;
+}
+#pawn_39 {
+    /*Papua New Guinea */
+    left: 85vw;
+    top: 65vh;
+}
+#pawn_40 {
+    /*Western Australia*/
+    left: 82vw;
+    top: 82vh;
+}
+#pawn_41 {
+    /*Eastern Australia*/
+    left: 87.5vw;
+    top: 77vh;
+}
+.line {
+    z-index: 0;
+    position: absolute;
+    width: 40px;
+    height: 10px;
+
+    background-color: rgb(169, 157, 157);
+    border-radius: 20%;
+}
+.northern-america {
+    box-shadow: 0px 0px 3px 4px rgb(247, 74, 11);
+}
+.southern-america {
+    box-shadow: 0px 0px 3px 4px rgb(26, 147, 103);
+}
+.africa {
+    box-shadow: 0px 0px 3px 4px rgb(147, 26, 131);
+}
+.europe {
+    box-shadow: 0px 0px 3px 4px rgb(57, 14, 199);
+}
+.asia {
+    box-shadow: 0px 0px 3px 4px rgb(87, 126, 4);
+}
+.australia {
+    box-shadow: 0px 0px 3px 4px rgb(89, 112, 112);
+}
+.bridge-line {
+    box-shadow: 0px 0px 3px 4px black;
+}
+/*Nothern america*/
+#line_0 {
+    left: 9.5vw;
+    top: 10vh;
+}
+#line_1 {
+    left: 7.5vw;
+    top: 16vh;
+    transform: rotate(45deg);
+}
+#line_2 {
+    left: 12.5vw;
+    top: 15.5vh;
+    width: 30px;
+    transform: rotate(-45deg);
+}
+#line_3 {
+    left: 15vw;
+    top: 15.5vh;
+    width: 30px;
+    transform: rotate(45deg);
+}
+#line_4 {
+    left: 13.75vw;
+    top: 21vh;
+    width: 27px;
+}
+#line_5 {
+    left: 17vw;
+    top: 8vh;
+    width: 175px;
+    transform: rotate(-3deg);
+}
+#line_6 {
+    left: 19vw;
+    top: 14.5vh;
+    width: 160px;
+    transform: rotate(-20deg);
+}
+#line_7 {
+    left: 26vw;
+    top: 15vh;
+    width: 60px;
+    transform: rotate(-35deg);
+}
+#line_8 {
+    left: 12vw;
+    top: 26vh;
+    width: 30px;
+    transform: rotate(50deg);
+}
+#line_9 {
+    left: 15vw;
+    top: 26vh;
+    width: 30px;
+    transform: rotate(-45deg);
+}
+#line_10 {
+    left: 18.5vw;
+    top: 26vh;
+    width: 30px;
+    transform: rotate(45deg);
+}
+#line_11 {
+    left: 20vw;
+    top: 21.5vh;
+    width: 35px;
+}
+#line_12 {
+    left: 21.5vw;
+    top: 26vh;
+    width: 30px;
+    transform: rotate(-45deg);
+}
+#line_13 {
+    left: 16.5vw;
+    top: 32vh;
+    width: 30px;
+}
+#line_14 {
+    left: 15.5vw;
+    top: 36.5vh;
+    width: 30px;
+    transform: rotate(45deg);
+}
+#line_15 {
+    left: 18.5vw;
+    top: 36.5vh;
+    width: 20px;
+    transform: rotate(-45deg);
+}
+/*south america*/
+#line_16 {
+    left: 18.75vw;
+    top: 49vh;
+    width: 75px;
+    transform: rotate(45deg);
+}
+#line_17 {
+    left: 21.5vw;
+    top: 63vh;
+    width: 40px;
+    transform: rotate(-70deg);
+}
+#line_18 {
+    left: 24.5vw;
+    top: 63vh;
+    width: 65px;
+    transform: rotate(45deg);
+}
+#line_19 {
+    left: 25vw;
+    top: 70vh;
+    width: 40px;
+}
+#line_20 {
+    left: 23.25vw;
+    top: 75.75vh;
+    width: 35px;
+    transform: rotate(45deg);
+}
+#line_21 {
+    left: 27.5vw;
+    top: 75.75vh;
+    width: 25px;
+    transform: rotate(-45deg);
+}
+/*africa*/
+#line_22 {
+    left: 32vw;
+    top: 68.5vh;
+    width: 90px;
+    transform: rotate(-10deg);
+}
+
+#line_23 {
+    left: 42vw;
+    top: 65vh;
+    width: 40px;
+    transform: rotate(-10deg);
+}
+#line_24 {
+    left: 42vw;
+    top: 70vh;
+    width: 23px;
+    transform: rotate(45deg);
+}
+#line_25 {
+    left: 42vw;
+    top: 69.4vh;
+    width: 100px;
+    transform: rotate(15deg);
+}
+#line_26 {
+    left: 48vw;
+    top: 68vh;
+    width: 25px;
+    transform: rotate(60deg);
+}
+#line_27 {
+    left: 47vw;
+    top: 75vh;
+    width: 25px;
+}
+#line_28 {
+    left: 45vw;
+    top: 80vh;
+    width: 25px;
+    transform: rotate(45deg);
+}
+#line_29 {
+    left: 48vw;
+    top: 79vh;
+    width: 25px;
+    transform: rotate(-45deg);
+}
+#line_30 {
+    left: 51.5vw;
+    top: 78vh;
+    width: 35px;
+    transform: rotate(45deg);
+}
+#line_31 {
+    left: 50vw;
+    top: 84vh;
+    width: 35px;
+}
+/*africa to asia or europe*/
+#line_32 {
+    left: 49vw;
+    top: 63vh;
+    width: 90px;
+    transform: rotate(-75deg);
+}
+#line_33 {
+    left: 48.5vw;
+    top: 60vh;
+    width: 45px;
+    transform: rotate(-40deg);
+}
+#line_34 {
+    left: 42vw;
+    top: 54vh;
+    width: 90px;
+    transform: rotate(60deg);
+}
+#line_35 {
+    left: 31vw;
+    top: 14vh;
+    width: 90px;
+    transform: rotate(50deg);
+}
+/*Europe*/
+#line_36 {
+    left: 38.75vw;
+    top: 20vh;
+    width: 90px;
+    transform: rotate(-5deg);
+}
+#line_37 {
+    left: 34vw;
+    top: 27vh;
+    width: 40px;
+    transform: rotate(-75deg);
+}
+#line_38 {
+    left: 35.5vw;
+    top: 27vh;
+    width: 140px;
+    transform: rotate(-30deg);
+}
+#line_39 {
+    left: 35.75vw;
+    top: 33vh;
+    width: 60px;
+}
+#line_40 {
+    left: 42vw;
+    top: 26vh;
+    width: 60px;
+    transform: rotate(-40deg);
+}
+#line_41 {
+    left: 47.5vw;
+    top: 26vh;
+    width: 60px;
+    transform: rotate(50deg);
+}
+#line_42 {
+    left: 44vw;
+    top: 33vh;
+    width: 90px;
+}
+#line_43 {
+    left: 44vw;
+    top: 39vh;
+    width: 90px;
+    transform: rotate(-30deg);
+}
+#line_44 {
+    left: 36vw;
+    top: 39vh;
+    width: 90px;
+    transform: rotate(-50deg);
+}
+#line_45 {
+    left: 39vw;
+    top: 46vh;
+    width: 40px;
+}
+#line_46 {
+    left: 40vw;
+    top: 39vh;
+    width: 90px;
+    transform: rotate(70deg);
+}
+/*bridge euro to asia*/
+#line_47 {
+    left: 45vw;
+    top: 50vh;
+    width: 90px;
+    transform: rotate(10deg);
+}
+#line_48 {
+    left: 52vw;
+    top: 38vh;
+    width: 90px;
+    transform: rotate(30deg);
+}
+#line_49 {
+    left: 53vw;
+    top: 30vh;
+    width: 125px;
+    transform: rotate(-15deg);
+}
+#line_50 {
+    left: 48.25vw;
+    top: 42vh;
+    width: 125px;
+    transform: rotate(85deg);
+}
+/*Asia*/
+#line_51 {
+    left: 54vw;
+    top: 48vh;
+    width: 60px;
+    transform: rotate(-45deg);
+}
+#line_52 {
+    left: 57vw;
+    top: 37vh;
+    width: 120px;
+    transform: rotate(-60deg);
+}
+#line_53 {
+    left: 62vw;
+    top: 24vh;
+    width: 120px;
+    transform: rotate(-20deg);
+}
+#line_54 {
+    left: 67vw;
+    top: 18vh;
+    width: 120px;
+    transform: rotate(-20deg);
+}
+#line_55 {
+    left: 75vw;
+    top: 18vh;
+    width: 120px;
+    transform: rotate(20deg);
+}
+#line_56 {
+    left: 75vw;
+    top: 25vh;
+    width: 120px;
+    transform: rotate(-20deg);
+}
+#line_57 {
+    left: 69vw;
+    top: 25vh;
+    width: 120px;
+    transform: rotate(20deg);
+}
+#line_58 {
+    left: 72vw;
+    top: 23vh;
+    width: 120px;
+    transform: rotate(90deg);
+}
+#line_59 {
+    left: 74vw;
+    top: 35vh;
+    width: 100px;
+    transform: rotate(60deg);
+}
+#line_60 {
+    left: 82vw;
+    top: 32vh;
+    width: 100px;
+    transform: rotate(70deg);
+}
+#line_61 {
+    left: 80vw;
+    top: 40vh;
+    width: 120px;
+    transform: rotate(5deg);
+}
+#line_62 {
+    left: 58vw;
+    top: 48vh;
+    width: 120px;
+    transform: rotate(45deg);
+}
+#line_63 {
+    left: 54vw;
+    top: 52vh;
+    width: 120px;
+}
+#line_64 {
+    left: 65vw;
+    top: 52vh;
+    width: 120px;
+    transform: rotate(-5deg);
+}
+#line_65 {
+    left: 60vw;
+    top: 47vh;
+    width: 200px;
+    transform: rotate(15deg);
+}
+#line_65 {
+    left: 72vw;
+    top: 45vh;
+    width: 120px;
+    transform: rotate(-45deg);
+}
+#line_66 {
+    left: 61vw;
+    top: 40vh;
+    width: 250px;
+    transform: rotate(45deg);
+}
+#line_67 {
+    left: 63vw;
+    top: 37vh;
+    width: 250px;
+    transform: rotate(70deg);
+}
+#line_68 {
+    left: 60vw;
+    top: 46vh;
+    width: 210px;
+    transform: rotate(15deg);
+}
+#line_69 {
+    left: 65vw;
+    top: 58vh;
+    width: 210px;
+    transform: rotate(15deg);
+}
+#line_70 {
+    left: 74vw;
+    top: 58vh;
+    width: 100px;
+    transform: rotate(45deg);
+}
+/*bridge asia to australia*/
+#line_71 {
+    left: 75.5vw;
+    top: 65vh;
+    width: 100px;
+    transform: rotate(90deg);
+}
+/*austraila*/
+#line_72 {
+    left: 80vw;
+    top: 70vh;
+    width: 100px;
+    transform: rotate(-10deg);
+}
+#line_73 {
+    left: 78vw;
+    top: 80vh;
+    width: 100px;
+    transform: rotate(45deg);
+}
+#line_74 {
+    left: 83vw;
+    top: 82vh;
+    width: 100px;
+    transform: rotate(-10deg);
+}
+#line_75 {
+    left: 85vw;
+    top: 75vh;
+    width: 100px;
+    transform: rotate(60deg);
+}
+#line_76 {
+    left: 81vw;
+    top: 76vh;
+    width: 120px;
+    transform: rotate(-65deg);
+}
+/*bridge left to right or right to left*/
+#line_77 {
+    left: 85vw;
+    top: 19vh;
+    width: 220px;
+    transform: rotate(-15deg);
+}
+#line_78 {
+    left: 0vw;
+    top: 10vh;
+    width: 90px;
+}
+.module-wrapper {
+    display: none;
+}
+.module-wrapper-attack {
+    display: none;
+}
+.module-wrapper-dices {
+    display: none;
+}
+.module-menu {
+    position: absolute;
+    display: flex;
+    z-index: 2;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 100px;
+    background-color: rgba(91, 95, 88, 0.17);
+    top: 0;
+    left: 0;
+}
+.module-menu-activated {
+    display: flex;
+}
+#plus {
+    background-color: rgb(233, 123, 5);
+    width: 100%;
+    font-size: 2.5rem;
+    text-align: center;
+}
+#minus {
+    background-color: rgb(47, 7, 149);
+    width: 100%;
+    font-size: 2.5rem;
+    text-align: center;
+}
+.turn-troops {
+    position: absolute;
+    top: 64vh;
+    left: 3vw;
+    width: 100px;
+    height: 50px;
+    background: linear-gradient(45deg, rgb(203, 152, 49), rgb(146, 144, 19));
+    box-shadow: 0px 0px 3px 2px rgb(127, 169, 174);
+    border: 1px solid #013d44;
+    font-size: 2.5rem;
+    text-align: center;
+}
+.next-section {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 72vh;
+    left: 3vw;
+    width: 100px;
+    height: 50px;
+    background: linear-gradient(45deg, rgb(15, 151, 52), rgb(23, 203, 35));
+    box-shadow: 0px 0px 3px 2px rgb(127, 169, 174);
+    border: 1px solid #013d44;
+    font-size: 1rem;
+    text-align: center;
+}
+.next-section:hover {
+    background: linear-gradient(45deg, rgb(24, 208, 73), rgb(23, 245, 38));
+}
+.next-section:active {
+    background: linear-gradient(45deg, rgb(15, 151, 52), rgb(23, 203, 35));
+}
+.section-indicator {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 80vh;
+    left: 3vw;
+    width: 100px;
+    height: 50px;
+    background: linear-gradient(45deg, rgb(161, 219, 13), rgb(102, 157, 8));
+    box-shadow: 0px 0px 3px 2px rgb(127, 169, 174);
+    border: 1px solid #013d44;
+    font-size: 1rem;
+    text-align: center;
+}
+.whos-turn {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 88vh;
+    left: 3vw;
+    width: 100px;
+    height: 50px;
+    background: linear-gradient(45deg, rgb(219, 85, 13), rgb(165, 111, 50));
+    box-shadow: 0px 0px 3px 2px rgb(127, 169, 174);
+    border: 1px solid #013d44;
+    font-size: 1rem;
+    text-align: center;
+}
+.module-attack {
+    position: absolute;
+    display: flex;
+    z-index: 2;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 50px;
+    color: rgb(200, 199, 199);
+    background-color: rgba(91, 95, 88);
+    box-shadow: 0px 0px 3px 2px rgb(127, 169, 174);
+    border: 1px solid #013d44;
+    top: 0;
+    left: 0;
+}
+#btn-attack {
+    width: 100%;
+    text-align: center;
+    font-size: 1.8rem;
+    justify-content: center;
+    align-items: center;
+}
+.dice {
+    position: absolute;
+    color: rgb(208, 208, 22);
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border: 1.5px solid black;
+    box-shadow: 0px 0px 3px 2px rgb(127, 169, 174);
+}
+.dice p {
+    padding: 0;
+    margin: 0;
+}
+.blue {
+    background-color: rgb(35, 33, 170);
+}
+.red {
+    background-color: rgb(177, 20, 20);
+}
+#firstblue {
+    left: 53vw;
+    top: 10vh;
+}
+#secondblue {
+    left: 58vw;
+    top: 10vh;
+}
+#firstred {
+    left: 59vw;
+    top: 70vh;
+}
+#secondred {
+    left: 64vw;
+    top: 70vh;
 }

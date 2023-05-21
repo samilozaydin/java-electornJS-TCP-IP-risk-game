@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Hello World!</title>
+        <link rel="stylesheet" href="index.css" />
+    </head>
+    <body>
+        <!-- <h1>💖 Hello World!</h1>
+        <p>Welcome to your Electron application.</p>
+        <button id="mybutton">click</button>
+        <button id="sendbutton">click write</button>
+        <p id="mytext"></p>-->
+        <div id="riskgame">
+
+            <div id = "gameboard" class="game-board">
+                <div id="pawn_0" class="pawns red-pawns">0</div>
+                <div id="pawn_1"class="pawns blue-pawns">1</div>
+                <div id="pawn_2"class="pawns blue-pawns">2</div>
+                <div id="pawn_3"class="pawns blue-pawns">3</div>
+                <div id="pawn_4"class="pawns blue-pawns">4</div>
+                <div id="pawn_5"class="pawns blue-pawns">5</div>
+                <div id="pawn_6"class="pawns blue-pawns">6</div>
+                <div id="pawn_7"class="pawns blue-pawns">7</div>
+                <div id="pawn_8"class="pawns blue-pawns">8</div>
+                <div id="pawn_9"class="pawns blue-pawns">9</div>
+                <div id="pawn_10"class="pawns blue-pawns">10</div>
+                <div id="pawn_11"class="pawns blue-pawns">11</div>
+                <div id="pawn_12"class="pawns blue-pawns">12</div>
+                <div id="pawn_13"class="pawns blue-pawns">13</div>
+                <div id="pawn_14"class="pawns blue-pawns">14</div>
+                <div id="pawn_15"class="pawns blue-pawns">15</div>
+                <div id="pawn_16"class="pawns blue-pawns">16</div>
+                <div id="pawn_17"class="pawns blue-pawns">17</div>
+                <div id="pawn_18"class="pawns blue-pawns">18</div>
+                <div id="pawn_19"class="pawns blue-pawns">19</div>
+                <div id="pawn_20"class="pawns blue-pawns">20</div>
+                <div id="pawn_21"class="pawns blue-pawns">21</div>
+                <div id="pawn_22"class="pawns blue-pawns">22</div>
+                <div id="pawn_23"class="pawns blue-pawns">23</div>
+                <div id="pawn_24"class="pawns blue-pawns">24</div>
+                <div id="pawn_25"class="pawns blue-pawns">25</div>
+                <div id="pawn_26"class="pawns blue-pawns">26</div>
+                <div id="pawn_27"class="pawns blue-pawns">27</div>
+                <div id="pawn_28"class="pawns blue-pawns">28</div>
+                <div id="pawn_29"class="pawns blue-pawns">29</div>
+                <div id="pawn_30"class="pawns blue-pawns">30</div>
+                <div id="pawn_31"class="pawns blue-pawns">31</div>
+                <div id="pawn_32"class="pawns blue-pawns">32</div>
+                <div id="pawn_33"class="pawns blue-pawns">33</div>
+                <div id="pawn_34"class="pawns blue-pawns">34</div>
+                <div id="pawn_35"class="pawns blue-pawns">35</div>
+                <div id="pawn_36"class="pawns blue-pawns">36</div>
+                <div id="pawn_37"class="pawns blue-pawns">37</div>
+                <div id="pawn_38"class="pawns blue-pawns">38</div>
+                <div id="pawn_39"class="pawns blue-pawns">39</div>
+                <div id="pawn_40"class="pawns blue-pawns">40</div>
+                <div id="pawn_41"class="pawns blue-pawns">41</div>
+                <div id="line_0" class="line northern-america"></div>
+                <div id="line_1" class="line northern-america"></div>
+                <div id="line_2" class="line northern-america"></div>
+                <div id="line_3" class="line northern-america"></div>
+                <div id="line_4" class="line northern-america"></div>
+                <div id="line_5" class="line northern-america"></div>
+                <div id="line_6" class="line northern-america"></div>
+                <div id="line_7" class="line northern-america"></div>
+                <div id="line_8" class="line northern-america"></div>
+                <div id="line_9" class="line northern-america"></div>
+                <div id="line_10" class="line northern-america"></div>
+                <div id="line_11" class="line northern-america"></div>
+                <div id="line_12" class="line northern-america"></div>
+                <div id="line_13" class="line northern-america"></div>
+                <div id="line_14" class="line northern-america"></div>
+                <div id="line_15" class="line northern-america"></div>
+                <div id="line_16" class="line bridge-line"></div>
+                <div id="line_17" class="line southern-america"></div>
+                <div id="line_18" class="line southern-america"></div>
+                <div id="line_19" class="line southern-america"></div>
+                <div id="line_20" class="line southern-america"></div>
+                <div id="line_21" class="line southern-america"></div>
+                <div id="line_22" class="line bridge-line"></div>
+                <div id="line_23" class="line africa"></div>
+                <div id="line_24" class="line africa"></div>
+                <div id="line_25" class="line africa"></div>
+                <div id="line_26" class="line africa"></div>
+                <div id="line_27" class="line africa"></div>
+                <div id="line_28" class="line africa"></div>
+                <div id="line_29" class="line africa"></div>
+                <div id="line_30" class="line africa"></div>
+                <div id="line_31" class="line africa"></div>
+                <div id="line_32" class="line bridge-line"></div>
+                <div id="line_33" class="line bridge-line"></div>
+                <div id="line_34" class="line bridge-line"></div>
+                <div id="line_35" class="line bridge-line"></div>
+                <div id="line_36" class="line europe"></div>
+                <div id="line_37" class="line europe"></div>
+                <div id="line_38" class="line europe"></div>
+                <div id="line_39" class="line europe"></div>
+                <div id="line_40" class="line europe"></div>
+                <div id="line_41" class="line europe"></div>
+                <div id="line_42" class="line europe"></div>
+                <div id="line_43" class="line europe"></div>
+                <div id="line_44" class="line europe"></div>
+                <div id="line_45" class="line europe"></div>
+                <div id="line_46" class="line europe"></div>
+                <div id="line_47" class="line bridge-line"></div>
+                <div id="line_48" class="line bridge-line"></div>
+                <div id="line_49" class="line bridge-line"></div>
+                <div id="line_50" class="line bridge-line"></div>
+                <div id="line_51" class="line asia"></div>
+                <div id="line_52" class="line asia"></div>
+                <div id="line_53" class="line asia"></div>
+                <div id="line_54" class="line asia"></div>
+                <div id="line_55" class="line asia"></div>
+                <div id="line_56" class="line asia"></div>
+                <div id="line_57" class="line asia"></div>
+                <div id="line_58" class="line asia"></div>
+                <div id="line_59" class="line asia"></div>
+                <div id="line_60" class="line asia"></div>
+                <div id="line_61" class="line asia"></div>
+                <div id="line_62" class="line asia"></div>
+                <div id="line_63" class="line asia"></div>
+                <div id="line_64" class="line asia"></div>
+                <div id="line_65" class="line asia"></div>
+                <div id="line_66" class="line asia"></div>
+                <div id="line_67" class="line asia"></div>
+                <div id="line_68" class="line asia"></div>
+                <div id="line_69" class="line asia"></div>
+                <div id="line_70" class="line asia"></div>
+                <div id="line_71" class="line bridge-line"></div>
+                <div id="line_72" class="line australia"></div>
+                <div id="line_73" class="line australia"></div>
+                <div id="line_74" class="line australia"></div>
+                <div id="line_75" class="line australia"></div>
+                <div id="line_76" class="line australia"></div>
+                <div id="line_77" class="line bridge-line"></div>
+                <div id="line_78" class="line bridge-line"></div>
+                <div class="module-wrapper">
+                    <div class ="module-menu">
+                        <div id ="plus"> + </div>
+                        <div id="minus"> - </div>
+                    </div>
+                </div>
+                <div class="module-wrapper-attack">
+                    <div class="module-attack">
+                        <div id="btn-attack"> Attack </div>
+                    </div>
+                </div>
+                    <div id="firstblue" class="dice blue">
+                        <p id="firstblueP">1</p>
+                    </div>
+                    <div id="secondblue"class="dice blue">
+                        <p id="secondblueP">1</p>
+                    </div>
+                    <div id="firstred"class="dice red">
+                        <p id="firstredP">1</p>
+                    </div>
+                    <div id="secondred" class="dice red">
+                        <p id="secondredP">1</p>
+
+                    </div>
+                <div class="turn-troops">5</div>
+                <div class="next-section">Next Section</div>
+                <div class="section-indicator">Deploy</div>
+                <div class="whos-turn"></div>
+
+            </div>
+
+
+
+
+            <!--
+            <div id="main_menu" class="menu-background">
+                <div id="waiting-menu">
+                    <div class="sessions">
+                        <div class="session"></div>
+                        <div class="session"></div>
+                    </div>
+                    <div class="container_session_button">
+                        <input
+                            id="session_name"
+                            type="text"
+                            placeholder="Session Name"
+                        />
+                        <img
+                            id="btn_add_session"
+                            onclick="console.log('yapistir')"
+                            src="images/btn_add_session.png"
+                        />
+                        <div style="width: 50px"></div>
+                    </div>
+                </div>
+
+                <div class="horizontal-buttons">
+                    <img
+                        class="btn_lobby_arrow"
+                        onclick="console.log('yapistir')"
+                        src="images/btn_previous.png"
+                    />
+                    <a href="index.html">
+                        <img
+                            id="btn_exit"
+                            onclick="console.log('yapistir')"
+                            src="images/btn_exit.png"
+                        />
+                    </a>
+                    <a href="deneme.html">
+                        <img
+                            class="btn_lobby_arrow"
+                            onclick="console.log('yapistir')"
+                            src="images/btn_next.png"
+                    /></a>
+                </div>
+            -->
+            </div>
+        </div>
+
+        <!-- <canvas id="game"></canvas>-->
+        <script src="game.js"></script>
+        <!--<script defer src="render.js"></script>-->
+    </body>
+</html>

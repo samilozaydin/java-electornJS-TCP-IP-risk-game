@@ -2,6 +2,8 @@
 <html>
     <head>
         <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Hello World!</title>
         <link rel="stylesheet" href="index.css" />
     </head>
@@ -12,10 +14,13 @@
         <button id="sendbutton">click write</button>
         <p id="mytext"></p>-->
         <div id="riskgame">
-            <button id="ply_btn"></button>
+            <div id="main_menu" class="menu-background">
+                <div id="main_menu_empty_button"></div>
+                <button id="ply_btn"></button>
+            </div>
         </div>
-        <canvas id="game"></canvas>
+
+        <!-- <canvas id="game"></canvas>-->
         <script defer src="render.js"></script>
-        <script defer src="game.js"></script>
     </body>
 </html>

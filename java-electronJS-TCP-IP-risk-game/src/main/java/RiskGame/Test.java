@@ -17,15 +17,17 @@ import java.util.logging.Logger;
 public class Test {
     public static void main(String[] args) {
         try {
-            Server server = new Server(8080);
+            Server server = new Server(5050);
             server.execute();
-            
            // sleep(15000);
 //           Client client = new Client(8080);
 //           client.executeClient();
             
         } catch (IOException ex) {
             Logger.getLogger(Test.class.getName()).log(Level.SEVERE, null, ex);}
+//        } catch (InterruptedException ex) {
+//            Logger.getLogger(Test.class.getName()).log(Level.SEVERE, null, ex);
+//        }
 //        } catch (InterruptedException ex) {
 //            Logger.getLogger(Test.class.getName()).log(Level.SEVERE, null, ex);
 //        }

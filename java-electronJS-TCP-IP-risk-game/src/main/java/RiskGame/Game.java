@@ -43,7 +43,6 @@ public class Game extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1024, 1024));
-        setPreferredSize(new java.awt.Dimension(1024, 1024));
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -148,6 +147,7 @@ public class Game extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Game.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
